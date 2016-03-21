@@ -52,3 +52,14 @@ nav {
   text-align: center;
   padding-top: 100px;
 }
+
+.article {
+  text-align: center;
+  padding: 100px;
+  background-color: gray;
+}
+
+.articlePad {
+  margin: 10px;
+  padding: 10px;
+}
