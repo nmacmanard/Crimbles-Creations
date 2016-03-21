@@ -22,8 +22,17 @@ nav {
   font-size: 18px;
 }
 
+@media (max-width: 700px) {
+  nav {
+    display: none;
+  }
+}
+
 .jumbotron {
   background-image: url('header.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 500px;
   position: relative;
 }
