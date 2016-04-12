@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Crimbles Creations</title>
 
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="styles.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/app.css" media="screen" charset="utf-8">
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -17,46 +17,46 @@
     <![endif]-->
   </head>
   <body>
-
-    <nav class="navbar-flex">
-      <ul class="navbar-flex-ul">
-        <li class="nav-active">Home</li>
-        <li>Favourites</li>
-        <li>Recipes</li>
-        <li>About</li>
-        <li>Contact</li>
-        <li>Login</li>
-      </ul>
-    </nav>
-
-    <div class="jumbotron">
-      <div class="col-md-6 col-md-offset-3 main-header">
-        <h1>Food Stuff</h1>
+    <div class="main-navigation">
+      <div class="container">
+        <ul>
+          <li>Top</li>
+          <li>Recent</li>
+          <li>Recipes</li>
+          <li><img src="img/logo.png" alt="Crimbles Creations Logo" /></li>
+          <li class="active">Home</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
       </div>
     </div>
 
-    <div class="article col-md-3">
-      <div class="articlePad">
-        TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
+    <section id="main-header">
+      <div class="container">
+        <h1>Good food. Little effort.</h1>
+        <h3>Get cooking on a budget with our student-friendly recipes!</h3>
       </div>
-    </div>
-    <div class="article col-md-3">
-      <div class="articlePad">
-        TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
-      </div>
-    </div>
-    <div class="article col-md-3">
-      <div class="articlePad">
-        TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
-      </div>
-    </div>
-    <div class="article col-md-3">
-      <div class="articlePad">
-        TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
-      </div>
-    </div>
+    </section>
 
+    <section id="recipe-grid">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <span class="grid-image"><img src="img/cookie.jpg" alt="Image of a cookie." /></span>
+            <span class="grid-info"><h4>Caring for <br><strong>Your Breaded Snack</strong></h4></span>
+          </div>
+          <div class="col-md-3">
+            <span class="grid-image"><img src="img/cookie.jpg" alt="Image of a cookie." /></span>
+            <span class="grid-info"><h4>Food for <br><strong>Your Soul</strong></h4></span>
+          </div>
+          <div class="col-md-3">
+            <span class="grid-image"><img src="img/cookie.jpg" alt="Image of a cookie." /></span>
+            <span class="grid-info"><h4>Eat fruit <br><strong>You Bint</strong></h4></span>
+          </div>
+      </div>
+    </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/init.js"></script>
   </body>
 </html>
