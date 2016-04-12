@@ -55,11 +55,12 @@ nav {
 
 .article {
   text-align: center;
-  padding: 100px;
+  padding: 10px;
   background-color: gray;
 }
 
 .articlePad {
   margin: 0 0 20px 0;
+  padding: 20px;
   background-color: red;
 }
