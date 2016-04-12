@@ -89,8 +89,32 @@ a:hover {
   text-align: center;
 }
 
-
-
+#recent-header {
+  background-image: url(../img/sushi.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+#recent-header span {
+  display: inline;
+}
+#recent-header .slider-hidden {
+  display: none;
+}
+#recent-header h1 {
+  color: white;
+  font-size: 4em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 200px;
+}
+#recent-header h3 {
+  color: white;
+  font-weight: 300;
+  font-size: 20px;
+  text-align: center;
+}
 
 #top-header {
   background-image: url(../img/meal_1.jpg);
