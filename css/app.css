@@ -170,7 +170,32 @@ a:hover {
   text-align: center;
 }
 
-
+#contact-header {
+  background-image: url(../img/header-1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+#contact-header span {
+  display: inline;
+}
+#contact-header .slider-hidden {
+  display: none;
+}
+#contact-header h1 {
+  color: white;
+  font-size: 4em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 200px;
+}
+#contact-header h3 {
+  color: white;
+  font-weight: 300;
+  font-size: 20px;
+  text-align: center;
+}
 
 
 #recipe-grid {
