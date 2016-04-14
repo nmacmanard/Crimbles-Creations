@@ -9,48 +9,37 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/app.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="../css/app.css" media="screen" charset="utf-8">
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body id="searchrecipe">
+  <body id="login-body">
     <div class="main-navigation">
       <div class="container">
         <ul>
           <li><a href="top.html">Top</a></li>
           <li><a href="recent.html">Recent</a></li>
-          <li><a href="recipes.html" class="active">Recipes</a></li>
-          <li><img src="img/logo.png" alt="Crimbles Creations Logo" /></li>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="recipes.html">Recipes</a></li>
+          <li><img src="../img/logo.png" alt="Crimbles Creations Logo" /></li>
+          <li><a href="#" class="active">Home</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="#">Log In</a></li>
         </ul>
       </div>
     </div>
 
-    <section id="recipes-header">
-      <div class="container">
-        <h1>All Recipes</h1>
-        <h3>Search for what takes your fancy!</h3>
-      </div>
-    </section>
+    <div class="login-box">
+      <form class="form-login" action="#" method="post" id="main-login-form">
+        <input type="text" name="username" value="" placeholder="Username">
+        <input type="password" name="password" value="" placeholder="Password">
+        <input class="login-button" type="button" name="name" value="Log In">
+      </form>
+    </div>
 
-    <section id="searchspace">
-      <div class="container">
-        <div class="col-md-3">
-        </div>
-        <div class="col-md-6">
-          <input id="input-nolog" placeholder="Search..."/>
-        </div>
-        <div class="col-md-3">
-        </div>
-      </div>
-    </section>
-
-    <div class="footer">
+    <div class="footer footer-login">
       <div class="container">
         <ul>
           <li>&#xA9; Copyright Crimble's Creations</li>
@@ -64,6 +53,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="js/init.js"></script>
+    <script src="../js/init.js"></script>
+    <script src="../js/parseFunctions.js"></script>
   </body>
 </html>
