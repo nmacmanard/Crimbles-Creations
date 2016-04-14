@@ -11,6 +11,20 @@ $(".form-login").submit(function() {
   attemptLogin(username, password);
 
   return false;
+});
+
+$('.recipe-add').submit(function() {
+  var formData = $(this).serializeArray();
+
+  var name = formData[0].value;
+  var author = formData[1].value;
+  var desc = formData[2].value;
+  var imageUrl = formData[3].value;
+  var content = formData[4].value;
+
+  attemptRecipeUpload(name, author, desc, imageUrl, content);
+
+  return false;
 })
 
 function attemptSignUp(username, password, email) {
@@ -59,4 +73,25 @@ function checkForSession(requiredState) {
       console.log("No current session. Continuing...");
     }
   }
+}
+
+function attemptRecipeUpload(name, author, desc, imageUrl, content) {
+  var Recipe = Parse.Object.extend("Recipe");
+  var recipe = new Recipe();
+
+  recipe.set("name", name);
+  recipe.set("rating", Math.floor(Math.random() * 5));
+  recipe.set("author", author);
+  recipe.set("description", desc);
+  recipe.set("imageUrl", imageUrl);
+  recipe.set("content", content);
+
+  recipe.save(null, {
+    success: function() {
+      swal("Hurray!", "Your recipe has been added to our collection. Thanks for your contribution!", "success");
+    },
+    error: function() {
+      swal("Oh no!", "Something went wrong on our end, try again later!", "error");
+    }
+  });
 }
