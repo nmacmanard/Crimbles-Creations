@@ -1,5 +1,13 @@
 Parse.initialize("Dk7wZnUjEs8i4RmwdZ0YP13DQRU6gShDa3NauSC9", "hpF2KqfxESRdHaEeBkZdYEFGdBLZP1yvvD2PA3IQ");
 
+$(document).ready(function() {
+  if (Parse.User.current()) {
+    $("#logInOut").html("<li onclick='attemptLogOut()'>Log Out</li>");
+    $("#logInOutNav").html("<li onclick='attemptLogOut()'>Log Out</li>");
+    $("#uploadId").html("<a href='/activeSession/'>Upload Recipe</a>");
+  }
+})
+
 $(".form-login").submit(function() {
   var formData = $(this).serializeArray();
 
@@ -94,4 +102,10 @@ function attemptRecipeUpload(name, author, desc, imageUrl, content) {
       swal("Oh no!", "Something went wrong on our end, try again later!", "error");
     }
   });
+}
+
+function attemptLogOut() {
+  Parse.User.logOut();
+
+  redirectPage("/");
 }

@@ -352,4 +352,12 @@ input:-ms-input-placeholder {
   color: #696969;
   font-size: 18px;
 }
+
+#logInOut {
+  cursor: pointer;
+}
+
+#logInOutNav {
+  cursor: pointer;
+}
 /*Search bar*/
