@@ -24,7 +24,7 @@
           <li><a href="recent.html">Recent</a></li>
           <li><a href="recipes.html">Recipes</a></li>
           <li><img src="img/logo.png" alt="Crimbles Creations Logo" /></li>
-          <li><a href="#" class="active">Home</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li id="logInOutNav"><a href="login/">Log In</a></li>
         </ul>
@@ -33,8 +33,8 @@
 
     <section id="main-header">
       <div class="container">
-        <h1>Name</h1>
-        <h3>Title</h3>
+        <h1 id="singleName">Name</h1>
+        <h3 id="singleTitle">Title</h3>
       </div>
     </section>
 
@@ -42,16 +42,16 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h2>Title Here</h2>
+            <h2 id="mainSingleTitle">Title Here</h2>
             <hr></hr>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-md-5 pull-right">
+          <div class="col-md-5 pull-right" id="singleImage">
             <img src="img/cookie.jpg" alt="" />
           </div>
-          <p>
+          <p id="singleContent">
             Content
           </p>
         </div>
@@ -76,5 +76,8 @@
     <script src="../js/init.js"></script>
     <script src="../js/sweetalert.min.js"></script>
     <script src="../js/parseFunctions.js"></script>
+    <script type="text/javascript">
+      getSingleRecipe();
+    </script>
   </body>
 </html>

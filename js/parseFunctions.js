@@ -1,5 +1,7 @@
 Parse.initialize("Dk7wZnUjEs8i4RmwdZ0YP13DQRU6gShDa3NauSC9", "hpF2KqfxESRdHaEeBkZdYEFGdBLZP1yvvD2PA3IQ");
 
+var savedId = "";
+
 $(document).ready(function() {
   if (Parse.User.current()) {
     $("#logInOut").html("<li onclick='attemptLogOut()'>Log Out</li>");
@@ -144,9 +146,10 @@ function listRecipes(order, searchTerm) {
         var name = results[i].get("name");
         var description = results[i].get("description");
         var imageUrl = results[i].get("imageUrl");
+        var id = results[i].id;
         var itemWidthInList = results[i].get("itemWidthInList");
 
-        output += "<div class='col-md-" + (itemWidthInList * 3) + "'>";
+        output += "<div onclick='setSingleCookie(&quot " + id + " &quot)' class='col-md-" + (itemWidthInList * 3) + "'>";
         output += "<span class='grid-image'><img src='" + imageUrl + "' alt='" + description + "' /></span>";
         output += "<span class='grid-info'><h4>" + description + "</h4></span>";
         output += "</div>";
@@ -166,3 +169,66 @@ $('#input-nolog').keypress(function(e) {
     listRecipes("none", value);
   }
 })
+
+function setSingleCookie(contentId) {
+  var processedKey = stripSpaces(contentId);
+
+  document.cookie="itemId=" + processedKey + "; path=/";
+  console.log("Cookie set with value " + processedKey);
+
+  redirectPage("single.html");
+}
+
+function getSingleCookie() {
+  var cookies = document.cookie;
+  var cookieArray = cookies.split(";");
+
+  for (var i = 0; i < cookieArray.length; i++) {
+    var processor = cookieArray[i].split("=");
+
+    if (processor[0] == " itemId") {
+      savedId = processor[1];
+    }
+  }
+}
+
+function stripSpaces(input) {
+  var processor = input.split("");
+
+  for(var i = 0; i < processor.length; i++) {
+    if (processor[i] == " ") {
+      processor.splice(i, 1);
+      i--;
+    }
+  }
+
+  var result = processor.join("");
+
+  return result;
+}
+
+function getSingleRecipe() {
+  getSingleCookie();
+
+  var Recipe = Parse.Object.extend("Recipe");
+  var query = new Parse.Query(Recipe);
+
+  query.equalTo("objectId", savedId);
+
+  query.find({
+    success: function(results) {
+      var name = results[0].get("name");
+      var description = results[0].get("description");
+      var imageUrl = results[0].get("imageUrl");
+      var content = results[0].get("content");
+
+      console.log(name);
+
+      $("#singleName").text(name);
+      $("#singleTitle").text(description);
+      $("#mainSingleTitle").text(name);
+      $("#singleContent").html(content);
+      $("#singleImage").html('<img src="' + imageUrl + '" alt="' + description + '" />');
+    }
+  });
+}

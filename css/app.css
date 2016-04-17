@@ -236,6 +236,10 @@ a:hover {
   padding-bottom: 10px;
 }
 
+.grid-image {
+  cursor: pointer;
+}
+
 /*Search bar*/
 input{
   -moz-background-clip: padding;
