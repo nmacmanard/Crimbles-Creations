@@ -317,7 +317,7 @@ input{
 }
 
 #add-recipe .recipe-form-box form input{
-  margin-top: 10px
+  margin-bottom: 10px
 }
 
 #add-recipe .recipe-form-box form #recipe-submit{
@@ -325,6 +325,7 @@ input{
   height: auto;
   padding: 10px 20px;
   border-radius: 10px;
+  margin-top: 10px
 }
 
 #add-recipe textarea {
@@ -379,4 +380,26 @@ input:-ms-input-placeholder {
   padding-bottom: 40px;
   margin: 0 auto 0 auto;
 }
+
+#recipe-body {
+  margin-top: 20px;
+}
+
+#recipe-body h2 {
+  font-size: 3em;
+}
+
+#recipe-body img {
+  width: 100%;
+}
+
+#recipe-body p {
+  font-size: 15px;
+}
+
+hr {
+  border-top: 2px solid #B21212;
+}
+
+
 /*contact*/

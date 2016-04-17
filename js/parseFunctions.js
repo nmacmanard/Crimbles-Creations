@@ -21,14 +21,16 @@ $(".form-login").submit(function() {
   return false;
 });
 
-$('.recipe-add').submit(function() {
+$('.recipe-add').submit(function(event) {
+  event.preventDefault();
+
   var formData = $(this).serializeArray();
 
   var name = formData[0].value;
   var author = formData[1].value;
   var desc = formData[2].value;
   var imageUrl = formData[3].value;
-  var content = formData[4].value;
+  var content = tinymce.activeEditor.getContent();
 
   attemptRecipeUpload(name, author, desc, imageUrl, content);
 
