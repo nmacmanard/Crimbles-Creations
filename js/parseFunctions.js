@@ -110,9 +110,26 @@ function attemptLogOut() {
   redirectPage("/");
 }
 
-function listRecipes() {
+function listRecipes(order, searchTerm) {
   var Recipe = Parse.Object.extend("Recipe");
   var query = new Parse.Query(Recipe);
+
+  switch(order) {
+    case "top":
+      query.descending("rating");
+      break;
+    case "recent":
+      query.descending("createdAt");
+      break;
+    case "none":
+      break;
+  }
+
+  if (searchTerm == null) {
+    console.log("No search term specified. Continuing...");
+  } else {
+    query.contains("name", searchTerm);
+  }
 
   query.find({
     success: function(results) {
@@ -139,3 +156,10 @@ function listRecipes() {
     }
   });
 }
+
+$('#input-nolog').keypress(function(e) {
+  if (e.which == 13) {
+    var value = $(this).val();
+    listRecipes("none", value);
+  }
+})
