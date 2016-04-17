@@ -4,7 +4,7 @@ $(document).ready(function() {
   if (Parse.User.current()) {
     $("#logInOut").html("<li onclick='attemptLogOut()'>Log Out</li>");
     $("#logInOutNav").html("<li onclick='attemptLogOut()'>Log Out</li>");
-    $("#uploadId").html("<a href='/activeSession/'>Upload Recipe</a>");
+    $("#uploadId").html("<a href='activeSession/'>Upload Recipe</a>");
   }
 })
 
@@ -72,11 +72,11 @@ function checkForSession(requiredState) {
     if (Parse.User.current()) {
       console.log("Logged in. Continuing...");
     } else {
-      redirectPage("/login/");
+      redirectPage("../login/");
     }
   } else if (requiredState == false) {
     if (Parse.User.current()) {
-      redirectPage("/activeSession/");
+      redirectPage("../activeSession/");
     } else {
       console.log("No current session. Continuing...");
     }
@@ -108,4 +108,34 @@ function attemptLogOut() {
   Parse.User.logOut();
 
   redirectPage("/");
+}
+
+function listRecipes() {
+  var Recipe = Parse.Object.extend("Recipe");
+  var query = new Parse.Query(Recipe);
+
+  query.find({
+    success: function(results) {
+      console.log("Successfully retrived recipes.");
+
+      output = "";
+
+      for (var i = 0; i < results.length; i++) {
+        var name = results[i].get("name");
+        var description = results[i].get("description");
+        var imageUrl = results[i].get("imageUrl");
+        var itemWidthInList = results[i].get("itemWidthInList");
+
+        output += "<div class='col-md-" + (itemWidthInList * 3) + "'>";
+        output += "<span class='grid-image'><img src='" + imageUrl + "' alt='" + description + "' /></span>";
+        output += "<span class='grid-info'><h4>" + description + "</h4></span>";
+        output += "</div>";
+      }
+
+      $("#main-repeat-grid").html(output);
+    },
+    error: function() {
+      console.log("An error occurred when retieving recipes.");
+    }
+  });
 }
