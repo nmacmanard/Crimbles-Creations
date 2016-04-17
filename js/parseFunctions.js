@@ -95,6 +95,7 @@ function attemptRecipeUpload(name, author, desc, imageUrl, content) {
   recipe.set("description", desc);
   recipe.set("imageUrl", imageUrl);
   recipe.set("content", content);
+  recipe.set("itemWidthinList", 1);
 
   recipe.save(null, {
     success: function() {
