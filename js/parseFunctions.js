@@ -97,7 +97,7 @@ function attemptRecipeUpload(name, author, desc, imageUrl, content) {
   recipe.set("description", desc);
   recipe.set("imageUrl", imageUrl);
   recipe.set("content", content);
-  recipe.set("itemWidthinList", 1);
+  recipe.set("itemWidthInList", 1);
 
   recipe.save(null, {
     success: function() {
@@ -218,6 +218,7 @@ function getSingleRecipe() {
   query.find({
     success: function(results) {
       var name = results[0].get("name");
+      var author = results[0].get("author");
       var description = results[0].get("description");
       var imageUrl = results[0].get("imageUrl");
       var content = results[0].get("content");
@@ -226,7 +227,7 @@ function getSingleRecipe() {
 
       $("#singleName").text(name);
       $("#singleTitle").text(description);
-      $("#mainSingleTitle").text(name);
+      $("#mainSingleTitle").text(name + ", Written by " + author);
       $("#singleContent").html(content);
       $("#singleImage").html('<img src="' + imageUrl + '" alt="' + description + '" />');
     }
