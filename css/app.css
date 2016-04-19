@@ -405,5 +405,12 @@ hr {
   border-top: 2px solid #B21212;
 }
 
+.signup-lead {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#singleImage {
+  margin-bottom: 20px;
+}
 
 /*contact*/
