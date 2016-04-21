@@ -10,7 +10,7 @@ $(document).ready(function() {
   }
 })
 
-$(".form-login").submit(function() {
+$("#main-login-form").submit(function() {
   var formData = $(this).serializeArray();
 
   var username = formData[0].value;
@@ -48,10 +48,14 @@ function attemptSignUp(username, password, email) {
 
   user.signUp(null, {
     success: function(user) {
-      console.log("Successfully signed up user");
+      swal("Congratulations!", "We've signed you up and logged you in! We'll take you to the homepage in about 5 seconds...", "success")
+
+      setTimeout(function() {
+        redirectPage("../index.html");
+      }, 5000);
     },
     error: function(error) {
-      console.log("Something went wrong");
+      swal("Oh no!", "We couldn't sign you up. Try a different username or email.", "error");
     }
   });
 }
@@ -68,7 +72,7 @@ function attemptLogin(username, password) {
 }
 
 function redirectPage(url) {
-  window.location.replace(url);
+  window.location = url;
 }
 
 function checkForSession(requiredState) {
@@ -97,7 +101,7 @@ function attemptRecipeUpload(name, author, desc, imageUrl, content) {
   recipe.set("description", desc);
   recipe.set("imageUrl", imageUrl);
   recipe.set("content", content);
-  recipe.set("itemWidthinList", 1);
+  recipe.set("itemWidthInList", 1);
 
   recipe.save(null, {
     success: function() {
@@ -186,7 +190,7 @@ function getSingleCookie() {
   for (var i = 0; i < cookieArray.length; i++) {
     var processor = cookieArray[i].split("=");
 
-    if (processor[0] == " itemId") {
+    if (processor[0] == "itemId") {
       savedId = processor[1];
     }
   }
@@ -213,22 +217,38 @@ function getSingleRecipe() {
   var Recipe = Parse.Object.extend("Recipe");
   var query = new Parse.Query(Recipe);
 
+  console.log(savedId);
+
   query.equalTo("objectId", savedId);
 
   query.find({
     success: function(results) {
+
       var name = results[0].get("name");
+      var author = results[0].get("author");
       var description = results[0].get("description");
       var imageUrl = results[0].get("imageUrl");
       var content = results[0].get("content");
 
-      console.log(name);
 
       $("#singleName").text(name);
       $("#singleTitle").text(description);
-      $("#mainSingleTitle").text(name);
+      $("#mainSingleTitle").text(name + ", Written by " + author);
       $("#singleContent").html(content);
       $("#singleImage").html('<img src="' + imageUrl + '" alt="' + description + '" />');
+      $("#main-header").css("background-image", "url(" + imageUrl + ")");
     }
   });
 }
+
+$("#main-signup-form").submit(function(event) {
+  event.preventDefault();
+
+  var formData = $(this).serializeArray();
+
+  var username = formData[0].value;
+  var password = formData[1].value;
+  var email = formData[2].value;
+
+  attemptSignUp(username, password, email);
+})

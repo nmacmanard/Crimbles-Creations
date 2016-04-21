@@ -9,50 +9,46 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/app.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="../css/app.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="../css/sweetalert.css" media="screen" charset="utf-8">
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body id="login-body">
     <div class="main-navigation">
       <div class="container">
         <ul>
-          <li><a href="top.html" class="active">Top</a></li>
-          <li><a href="recent.html">Recent</a></li>
-          <li><a href="recipes.html">Recipes</a></li>
-          <li><img src="img/logo.png" alt="Crimbles Creations Logo" /></li>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li id="logInOutNav"><a href="login/index.html">Log In</a></li>
+          <li><a href="../top.html">Top</a></li>
+          <li><a href="../recent.html">Recent</a></li>
+          <li><a href="../recipes.html">Recipes</a></li>
+          <li><img src="../img/logo.png" alt="Crimbles Creations Logo" /></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="#" class="active">Log In</a></li>
         </ul>
       </div>
     </div>
 
-    <section id="top-header">
-      <div class="container">
-        <h1>Top Recipies</h1>
-        <h3>Here are the most popular recipies rated by students!</h3>
-      </div>
-    </section>
+    <div class="login-box">
+      <form class="form-login" action="#" method="post" id="main-signup-form">
+        <input type="text" name="username" value="" placeholder="Username">
+        <input type="password" name="password" value="" placeholder="Password">
+        <input type="text" name="email" value="" placeholder="Email Address">
+        <input class="login-button" type="submit" name="name" value="Sign Up">
+      </form>
+    </div>
 
-    <section id="recipe-grid">
-      <div class="container">
-        <div class="row" id="main-repeat-grid">
-          <h2>Loading...</h2>
-      </div>
-    </section>
-
-    <div class="footer">
+    <div class="footer footer-login">
       <div class="container">
         <ul>
           <li>&#xA9; Copyright Crimble's Creations</li>
           <li></li>
-          <li id="uploadId"></li>
-          <li>Contact</li>
-          <li id="logInOut">Log In</li>
+          <li></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#" class="active">Log In</a></li>
         </ul>
       </div>
     </div>
@@ -60,11 +56,11 @@
     <script src="http://www.parsecdn.com/js/parse-1.6.14.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="js/init.js"></script>
-    <script src="js/sweetalert.min.js"></script>
-    <script src="js/parseFunctions.js"></script>
+    <script src="../js/init.js"></script>
+    <script src="../js/sweetalert.min.js"></script>
+    <script src="../js/parseFunctions.js"></script>
     <script type="text/javascript">
-      listRecipes("top");
+      checkForSession(false);
     </script>
   </body>
 </html>
