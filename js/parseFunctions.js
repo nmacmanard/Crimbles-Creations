@@ -190,7 +190,7 @@ function getSingleCookie() {
   for (var i = 0; i < cookieArray.length; i++) {
     var processor = cookieArray[i].split("=");
 
-    if (processor[0] == "itemId") {
+    if (processor[0] == "itemId" || processor[0] == " itemId") {
       savedId = processor[1];
     }
   }
